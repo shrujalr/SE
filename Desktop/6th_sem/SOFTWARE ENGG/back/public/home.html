@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+      <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+     <!-- <div ng-hide="currentuser">-->
+      <li ng-hide="currentuser"><a class="btn" href="/login" style="font-size:1.4em;">Login </a></li>
+      <li ng-hide="currentuser"><a class="btn" href="/signup" style="font-size:1.4em;">Register </a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Gate Pass</a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Home Register </a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Vehicle Registration </a></li>
+      
+ 	<!--</div>-->
+<!--<div ng-show="currentuser">-->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+	<a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+	
+			<!--</div>-->
+
+
+
+    </ul>
+  </div>
+</nav>
+<!--
+<div ng-hide="currentuser">
+		THIS IS THE SECURITY SITE OF VNIT :)) 
+</div>
+<div ng-show="currentuser">
+	<h2>	HELLO,{{currentuser}} :) </h2><br>
+	<br>
+	<a href ng-click="logout()" class="btn" style="font-size: 1.5em;background: black;color: white;">LOGOUT</a>
+	<a href="/update" class="btn" style="font-size: 1.5em;background: black;color: white;">reset</a>
+			
+			
+</div>
+
+-->
+<img src="/img/back1.jpg" height="1000px" width="1500px" style="margin-left: 150px;">
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+
+
+<h1>WE ARE THE CHAINCODERS </h1>

@@ -1,0 +1,117 @@
+<!--
+      
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/about">Page 1</a></li>
+      <li><a href="/home">home </a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="col-md-8">
+      <div ng-hide="currentuser">
+        
+        
+      <h3>
+
+        ALL POSTS UP !</h3>
+
+      </div>
+      <div class="new-meow" ng-show="currentuser">
+      <h3>
+          <input type="text" class="form-control" ng-model="newmeow" placeholder="What's UP?" ><br>
+          <button type="button" ng-click="submitnew()" class="btn">Submit</button>
+        
+      </h3>
+    </div>
+    jka
+      <h3 ng-repeat="meow in meows">
+        xakL
+         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          {{meow.username}}
+          <br>
+          <hr>
+        {{ meow.text }}
+        <a href ng-click="removemeow(meow)">
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+           <br>
+
+
+        </a>
+        
+      </h3>
+    </div>
+
+-->
+
+<div class="row feed">
+    <div class="col-md-4">
+    <div ng-hide="currentuser">
+      <h2>Login </h2>
+         <form>
+             <input type="text" class="form-control" ng-model="firstname" placeholder="Username Please"><br><br>
+            <input type="password" class="form-control" size="30" placeholder="Password" ng-model="password">
+            <br>
+            <br>
+            <button type="button" class="btn" ng-click="signin()" style="font-size: 2em;background: black;color: white;">LOG IN</button>&nbsp;
+            <a href="/signup" class="btn" style="font-size: 1.5em;background: black;color: white;">NOT A USER ? SIGN UP</a>
+          </form>
+<!--
+        <input type="text" size="30" placeholder="username" ng-models="username">
+        <br><br>
+        <input type="password" size="30" placeholder="password" ng-model="password">
+        <br>
+        <br><br>
+          <button type="button" ng-click="signin1()">SIGN IN </button>-->
+          
+
+        
+    </div>
+    <div ng-show="currentuser">
+    <h2>  HELLO,{{currentuser}} :) </h2><br>
+      <br>
+      <a href ng-click="logout()" class="btn" style="font-size: 1.5em;background: black;color: white;">LOGOUT</a>
+      <a href="/update" class="btn" style="font-size: 1.5em;background: black;color: white;">reset</a>
+      
+      
+    </div>
+         
+        
+    </div>
+    <div class="col-md-8">
+      <div ng-hide="currentuser">
+        
+        
+      <h3>
+
+        ALL POSTS UP !</h3>
+
+      </div>
+      <div class="new-meow" ng-show="currentuser">
+      <h3>
+          <input type="text" class="form-control" ng-model="newmeow" placeholder="What's UP?" ><br>
+          <button type="button" ng-click="submitnew()" class="btn">Submit</button>
+        
+      </h3></div>
+      <h3 ng-repeat="meow in meows">
+         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          {{meow.username}}
+          <br>
+          <hr>
+        {{ meow.text }}
+        <a href ng-click="removemeow(meow)">
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+           <br>
+
+
+        </a>
+        
+      </h3>
+    </div>
+  </div>

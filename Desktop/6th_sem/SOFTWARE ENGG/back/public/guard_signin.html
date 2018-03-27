@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+      <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+     <!-- <div ng-hide="currentuser">-->
+      <li ng-hide="currentuser"><a class="btn" href="/login" style="font-size:1.4em;">Login </a></li>
+      <li ng-hide="currentuser"><a class="btn" href="/signup" style="font-size:1.4em;">Register </a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Gate Pass</a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Home Register </a></li>
+      <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Vehicle Registration </a></li>
+      
+ 	<!--</div>-->
+<!--<div ng-show="currentuser">-->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+	<a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+	
+			<!--</div>-->
+
+
+
+    </ul>
+  </div>
+</nav>
+
+
+
+<h3>ADD A NEW GUARD !</h3>
+<input type="number" class="form-control" name="gid" placeholder="*ID.NUMBER" ng-model="gid">
+<BR>
+<input type="text" class="form-control" name="uname" placeholder="username" ng-model="username">
+<br>
+
+<input type="radio"   name="gender" value="male" ng-model="gender" checked> Male<br>
+  <input type="radio"   name="gender" value="female" ng-model="gender"> Female<br>
+  <input type="radio"  name="gender" value="other" ng-model="gender"> Other  
+<BR><br>
+<input type="text" name="add" class="form-control" placeholder="Enter Address" ng-model="add">
+<input type="text" name="work" class="form-control" placeholder="Enter Working Status" ng-model="work">
+<input type="text" name="post" class="form-control" placeholder="Enter Posting" ng-model="post">
+
+
+
+
+<input type="password" class="form-control" value= null name="pass" placeholder="Enter Password" ng-model="password" disabled><br>
+<input type="password" class="form-control" value=null name="pass1" placeholder="Reenter password" ng-model="password1" disabled><br>
+
+<br>
+
+ <a href="/secsection"> <button type="button" class="btn" style="font-size: 1.5em;background: black;color: white;" ng-click="submitSignup();">Signup</button></a>
