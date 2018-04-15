@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="703" column="30" selection-start-line="703" selection-start-column="30" selection-end-line="703" selection-end-column="30" />
+            <state relative-caret-position="627">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vehicle_form.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vehicle_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/vehicle_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
+            <state relative-caret-position="779">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#7;n#form#0;n#!!top" expanded="true" />
@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/public/vehicle_guardOutgoing.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/public/studlogin.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-50">
-              <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
@@ -103,10 +103,10 @@
         <option value="$PROJECT_DIR$/public/home.html" />
         <option value="$PROJECT_DIR$/public/stud_landing.html" />
         <option value="$PROJECT_DIR$/public/a.html" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/studlogin.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/vehicle_form.html" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -119,7 +119,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="170" />
     <option name="y" value="91" />
     <option name="width" value="1026" />
@@ -232,16 +232,15 @@
       <workItem from="1523351428604" duration="508000" />
       <workItem from="1523690298235" duration="8726000" />
       <workItem from="1523771992669" duration="6028000" />
-      <workItem from="1523784983000" duration="3129000" />
+      <workItem from="1523784983000" duration="5898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38649000" />
+    <option name="totallyTimeSpent" value="41418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -604,24 +603,17 @@
     <entry file="file://$PROJECT_DIR$/public/vehicle_guardOutgoing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/studlogin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-50">
-          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="703" column="30" selection-start-line="703" selection-start-column="30" selection-end-line="703" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -634,12 +626,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/vehicle_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
+        <state relative-caret-position="779">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#7;n#form#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
         </state>
       </provider>
     </entry>

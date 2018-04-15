@@ -3,9 +3,6 @@ var app= express();
 var bodyParser = require('body-parser');
 var ObjectId=require('mongodb').ObjectId;
 var MongoClient = require('mongodb').MongoClient;
-var mongojs = require('mongojs');
-var database = mongojs('ssrss',['vehicle_entries']);
-//var bcrypt=require('bcryptjs');
 var jwt = require('jwt-simple');
 var JWT_SECRET='catsmeow';
 
@@ -671,7 +668,7 @@ app.put('/vehicle/entry/:id',function(req,res){
     MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
 
         db.collection('vehicle_entries',function (err,collection) {
-            collection.update({_id:mongojs.ObjectId(id)},{$set:{entry:1,entryTime:Date()}},function (err) {
+            collection.update({_id:ObjectId(id)},{$set:{entry:1,entryTime:Date()}},function (err) {
                 if (err) throw err;
                 return res.send();
             });
@@ -689,7 +686,7 @@ app.put('/vehicle/exit/:id',function(req,res){
     MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
 
         db.collection('vehicle_entries',function (err,collection) {
-            collection.update({_id:mongojs.ObjectId(id)},{$set:{exit:1,exitTime:Date()}},function (err) {
+            collection.update({_id:ObjectId(id)},{$set:{exit:1,exitTime:Date()}},function (err) {
                 if (err) throw err;
                 return res.send();
             });
