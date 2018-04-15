@@ -40,7 +40,8 @@
 
 
 <h3>Vehicle Entry!</h3>
-<input type="number" class="form-control" name="sid" placeholder="ID no" ng-model="vehicle.id" style="width: 45%;">
+<form>
+<input type="number" class="form-control" name="sid" required pattern=".{5}" title="please enter a 5 digit ID" placeholder="ID no" ng-model="vehicle.id" style="width: 45%;">
 <BR>
 <input type="text" class="form-control" name="uname" placeholder="Name" ng-model="vehicle.name" style="width: 45%;">
 <br>
@@ -56,8 +57,8 @@
 
 <br>
 
-<button type="button" class="btn" style="font-size: 1.5em;background: black;color: white;" ng-click="vehicle_entry();">Submit</button>
-
+<input type="submit" class="btn" style="font-size: 1.5em;background: black;color: white;" ng-click="vehicle_entry();">
+</form>
 
 
 
