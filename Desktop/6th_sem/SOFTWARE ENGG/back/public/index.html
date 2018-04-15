@@ -1,537 +1,645 @@
 
 <!DOCTYPE html>
 <head>
-	<title>
-			MEOW
-	</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
-	<script type="text/javascript" src="angular.min.js"></script>
-	<script type="text/javascript" src="angular-route.js"></script>
-		<script type="text/javascript" src="angular-cookies.js"></script>
-	
-	<script type="text/javascript">
-		var app = angular.module('mittens',['ngRoute','ngCookies']);
-	
-		app.config(function($routeProvider, $locationProvider){
-		$locationProvider.html5Mode({
-  			enabled: true,
-  			requireBase: false
-		});
-			$routeProvider
-			
+    <title>
+            SE
+    </title>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-			.when('/', {
-		    templateUrl: 'home.html',
-		    controller: 'HomeController'
-		    
-		    })
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-route.js"></script>
+        <script type="text/javascript" src="angular-cookies.js"></script>
 
-			.when('/signup', {
-		    templateUrl: 'signup.html',
-		    controller: 'SignupController'
-		    
-		    })
-			.when('/update', {
-		    templateUrl: 'update.html',
-		    controller: 'updateController'
-		    
-		    })
-			.when('/about', {
-		    templateUrl: 'about.html',
-		    controller: 'updateController'
-		    
-		    })
-			.when('/studlogin', {
-		    templateUrl: 'studlogin.html',
-		    controller: 'stud_loginController'
-		    
-		    })
-		    .when('/login', {
-		    templateUrl: 'login.html',
-		    controller: 'loginController'
-		    
-		    })
-		      .when('/seclogin', {
-		    templateUrl: 'seclogin.html',
-		    controller: 'sec_loginController'
-		    
-		    })
-		       .when('/adminlogin', {
-		    templateUrl: 'adminlogin.html',
-		    controller: 'admin_loginController'
-		    
-		    })
+    <script type="text/javascript">
+        var app = angular.module('mittens',['ngRoute','ngCookies']);
 
-		    .when('/student_signin', {
-		    templateUrl: 'student_signin.html',
-		    controller: 'student_signinController'
-		    
-		    })
-		     .when('/admin_signin', {
-		    templateUrl: 'admin_signin.html',
-		    controller: 'admin_signinController'
-		    
-		    })
-		      .when('/guard_signin', {			/*remaining*/
-		    templateUrl: 'guard_signin.html',
-		    controller: 'guard_signinController'
-		    
-		    })
-		        .when('/secsection', {
-		    templateUrl: 'secsection.html',
-		    controller: 'sec_sectionController'
-		    
-		    })
-		             .when('/stud_landing', {
-		    templateUrl: 'stud_landing.html',
-		    controller: 'stud_landingController'
-		    
-		    })
+        app.config(function($routeProvider, $locationProvider){
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+            $routeProvider
 
 
-	    
-		    ;
-			
-			
+            .when('/', {
+            templateUrl: 'home.html',
+            controller: 'HomeController'
 
-			
+            })
 
-		  
-			
-		});
+            .when('/signup', {
+            templateUrl: 'signup.html',
+            controller: 'SignupController'
 
-		app.run(function($rootScope,$cookies){
+            })
+            .when('/update', {
+            templateUrl: 'update.html',
+            controller: 'updateController'
 
-				if($cookies.get('token')&& $cookies.get('currentuser')){
+            })
+            .when('/about', {
+            templateUrl: 'about.html',
+            controller: 'updateController'
 
-						$rootScope.token=$cookies.get('token');
-						$rootScope.currentuser=$cookies.get('currentuser');
+            })
+            .when('/studlogin', {
+            templateUrl: 'studlogin.html',
+            controller: 'stud_loginController'
 
-				}
-		});
+            })
+            .when('/login', {
+            templateUrl: 'login.html',
+            controller: 'loginController'
+
+            })
+              .when('/seclogin', {
+            templateUrl: 'seclogin.html',
+            controller: 'sec_loginController'
+
+            })
+               .when('/adminlogin', {
+            templateUrl: 'adminlogin.html',
+            controller: 'admin_loginController'
+
+            })
+
+            .when('/student_signin', {
+            templateUrl: 'student_signin.html',
+            controller: 'student_signinController'
+
+            })
+             .when('/admin_signin', {
+            templateUrl: 'admin_signin.html',
+            controller: 'admin_signinController'
+
+            })
+              .when('/guard_signin', {			/*remaining*/
+            templateUrl: 'guard_signin.html',
+            controller: 'guard_signinController'
+
+            })
+                .when('/secsection', {
+            templateUrl: 'secsection.html',
+            controller: 'sec_sectionController'
+
+            })
+                     .when('/stud_landing', {
+            templateUrl: 'stud_landing.html',
+            controller: 'stud_landingController'
+
+            })
+
+                .when('/vehicle_form', {
+                    templateUrl: 'vehicle_form.html',
+                    controller: 'vehicleCtrl'
+
+                })
+                .when('/vehicle_guardIncoming', {
+                    templateUrl: 'vehicle_guardIncoming.html',
+                    controller: 'vehicleGuardIncoming'
+
+                })
+
+                .when('/vehicle_guardOutgoing', {
+                    templateUrl: 'vehicle_guardOutgoing.html',
+                    controller: 'vehicleGuardOutgoing'
+
+                })
+            ;
+
+
+        });
+
+        app.run(function($rootScope,$cookies){
+
+                if($cookies.get('token')&& $cookies.get('currentuser')){
+
+                        $rootScope.token=$cookies.get('token');
+                        $rootScope.currentuser=$cookies.get('currentuser');
+
+                }
+        });
 
 
 
 app.controller ('stud_loginController', function($rootScope,$scope,$http,$cookies){
 
-				
-
-			
-			$scope.signin=function(){
-				
-						var newUser={
-						username:$scope.firstname,
-						password:$scope.password
-					};	
-				  
-				   
-			
-				$http.put('students/signin',newUser).then(function(res){
-					
-					$cookies.put('token',res.data.token);
-					$cookies.put('currentuser',$scope.firstname);
-					$rootScope.token=res.data.token;
-					$rootScope.currentuser=$scope.firstname;
-					console.log($rootScope.currentuser);
-				
-				},function(err){
-
-				alert('Incorrect Username or Password! Try again :)');
-				});
-
-			}
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
-
-			}
-			
-						
-		});
-		app.controller ('sec_loginController', function($rootScope,$scope,$http,$cookies){
-
-				
-
-			
-			$scope.signin=function(){
-				
-						var newUser={
-						gid:$scope.firstname,
-						password:$scope.password
-					};	
-				  
-				   
-			
-				$http.put('seclogin/signin',newUser).then(function(res){
-					
-					$cookies.put('token',res.data.token);
-					$cookies.put('currentuser',$scope.firstname);
-					$rootScope.token=res.data.token;
-					$rootScope.currentuser=$scope.firstname;
-					console.log($rootScope.currentuser);
-				
-				},function(err){
-
-				alert('Incorrect Username or Password! Try again :)');
-				});
-
-			}
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
-
-			}
-			
-						
-		});
-		app.controller ('admin_loginController', function($rootScope,$scope,$http,$cookies){
-
-				
-
-			   console.log('hello');
-			$scope.signin=function(){
-				
-						var newUser={
-						id:$scope.firstname,
-						password:$scope.password
-					};	
-				  
-				   
-			
-				$http.put('adminlogin/signin',newUser).then(function(res){
-					
-					$cookies.put('token',res.data.token);
-					$cookies.put('currentuser',$scope.firstname);
-					$rootScope.token=res.data.token;
-					$rootScope.currentuser=$scope.firstname;
-					console.log($rootScope.currentuser);
-				
-				},function(err){
-
-				alert('Incorrect Username or Password! wweTry again :)');
-				});
-
-			}
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
-
-			}
-			
-						
-		});
-		
-		
-		app.controller ('HomeController', function($rootScope,$scope,$http,$cookies){
-
-		/*		$scope.submitnew=function(){
-			 
-				$http.post('/meows',
-					{newmeow : $scope.newmeow},
-					{headers:{
-						'authorization':$rootScope.token
-					}}).then(function(){
-						getmeows();
-						$scope.newmeow='';				
-				});
-
-			};
-
-			$scope.removemeow=function(meow){
-
-				$http.put('/meows/remove',
-					{meow : meow},
-					{headers:{
-						'authorization':$rootScope.token
-					}}).then(function(){
-					getmeows();
-						
-				});
-			};
-
-			$scope.signin=function(){
-				
-						var newUser={
-						username:$scope.firstname,
-						password:$scope.password
-					};	
-				  
-				   
-			
-				$http.put('users/signin',newUser).then(function(res){
-					
-					$cookies.put('token',res.data.token);
-					$cookies.put('currentuser',$scope.firstname);
-					$rootScope.token=res.data.token;
-					$rootScope.currentuser=$scope.firstname;
-				
-				},function(err){
-
-				alert('Incorrect Username or Password! Try again :)');
-				});
-
-			}
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
-
-			}
-			
-			function getmeows(){
-				$http.get('/meows').then(function(response){
-
-				$scope.meows=response.data;
-
-			});
 
 
-			}
 
-			getmeows();*/
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
+            $scope.signin=function(){
 
-			}
-			
-		});
-		app.controller ('SignupController', function($rootScope,$scope,$http,$cookies){
-				
-				
-			/*	$scope.update=function(){
+                        var newUser={
+                        username:$scope.firstname,
+                        password:$scope.password
+                    };
 
-					var newUser={
-						username:$scope.username,
-						password:$scope.password
-					};	
 
-					$http.post('/users/update',newUser).then(function(){
-									
-				});
-				}
-				*/
-				$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
 
-			}
-		
-		});
-		app.controller ('student_signinController', function($rootScope,$scope,$http,$cookies){
-				
-				$scope.submitSignup=function(){
+                $http.put('students/signin',newUser).then(function(res){
 
-					var newUser={
-						id:$scope.id,
-						username:$scope.username,
-						gender:$scope.gender,
-						degree:$scope.degree,
-						sem:$scope.sem,
-						hostel:$scope.hostel,
-						room:$scope.room,						
-						password:$scope.password,
-						password1:$scope.password1
+                    $cookies.put('token',res.data.token);
+                    $cookies.put('currentuser',$scope.firstname);
+                    $rootScope.token=res.data.token;
+                    $rootScope.currentuser=$scope.firstname;
+                    console.log($rootScope.currentuser);
+                    console.log($cookies.token);
 
-					};	
+                },function(err){
 
-					$http.post('/students',newUser).then(function(res){
-							
-						
-						alert('done!');
-									
-				},function(err){
+                alert('Incorrect Username or Password! Try again :)');
+                });
 
-					alert('already registered!');
+            }
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
 
-				});
-				}
+            }
+
+
+        });
+        app.controller ('sec_loginController', function($rootScope,$scope,$http,$cookies){
+
+
+
+
+            $scope.signin=function(){
+
+                        var newUser={
+                        gid:$scope.firstname,
+                        password:$scope.password
+                    };
+
+
+
+                $http.put('seclogin/signin',newUser).then(function(res){
+
+                    $cookies.put('token',res.data.token);
+                    $cookies.put('currentuser',$scope.firstname);
+                    $rootScope.token=res.data.token;
+                    $rootScope.currentuser=$scope.firstname;
+                    console.log($rootScope.currentuser);
+
+                },function(err){
+
+                alert('Incorrect Username or Password! Try again :)');
+                });
+
+            }
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+
+        });
+        app.controller ('admin_loginController', function($rootScope,$scope,$http,$cookies){
+
+
+
+               console.log('hello');
+            $scope.signin=function(){
+
+                        var newUser={
+                        id:$scope.firstname,
+                        password:$scope.password
+                    };
+
+
+
+                $http.put('adminlogin/signin',newUser).then(function(res){
+
+                    $cookies.put('token',res.data.token);
+                    $cookies.put('currentuser',$scope.firstname);
+                    $rootScope.token=res.data.token;
+                    $rootScope.currentuser=$scope.firstname;
+                    console.log($rootScope.currentuser);
+
+                },function(err){
+
+                alert('Incorrect Username or Password! wweTry again :)');
+                });
+
+            }
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+
+        });
+
+
+        app.controller ('HomeController', function($rootScope,$scope,$http,$cookies){
+
+        /*		$scope.submitnew=function(){
+
+                $http.post('/meows',
+                    {newmeow : $scope.newmeow},
+                    {headers:{
+                        'authorization':$rootScope.token
+                    }}).then(function(){
+                        getmeows();
+                        $scope.newmeow='';
+                });
+
+            };
+
+            $scope.removemeow=function(meow){
+
+                $http.put('/meows/remove',
+                    {meow : meow},
+                    {headers:{
+                        'authorization':$rootScope.token
+                    }}).then(function(){
+                    getmeows();
+
+                });
+            };
+
+            $scope.signin=function(){
+
+                        var newUser={
+                        username:$scope.firstname,
+                        password:$scope.password
+                    };
+
+
+
+                $http.put('users/signin',newUser).then(function(res){
+
+                    $cookies.put('token',res.data.token);
+                    $cookies.put('currentuser',$scope.firstname);
+                    $rootScope.token=res.data.token;
+                    $rootScope.currentuser=$scope.firstname;
+
+                },function(err){
+
+                alert('Incorrect Username or Password! Try again :)');
+                });
+
+            }
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+            function getmeows(){
+                $http.get('/meows').then(function(response){
+
+                $scope.meows=response.data;
+
+            });
+
+
+            }
+
+            getmeows();*/
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+        });
+        app.controller ('SignupController', function($rootScope,$scope,$http,$cookies){
+
+
+            /*	$scope.update=function(){
+
+                    var newUser={
+                        username:$scope.username,
+                        password:$scope.password
+                    };
+
+                    $http.post('/users/update',newUser).then(function(){
+
+                });
+                }
+                */
+                $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+        });
+        app.controller ('student_signinController', function($rootScope,$scope,$http,$cookies){
+
+                $scope.submitSignup=function(){
+
+                    var newUser={
+                        id:$scope.id,
+                        username:$scope.username,
+                        gender:$scope.gender,
+                        degree:$scope.degree,
+                        sem:$scope.sem,
+                        hostel:$scope.hostel,
+                        room:$scope.room,
+                        password:$scope.password,
+                        password1:$scope.password1
+
+                    };
+
+                    $http.post('/students',newUser).then(function(res){
+
+
+                        alert('done!');
+
+                },function(err){
+
+                    alert('already registered!');
+
+                });
+                }
 $scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
 
-			}
-			
-		
-		});
-		app.controller ('admin_signinController', function($rootScope,$scope,$http,$cookies){
-				
+            }
 
 
-				$scope.submitSignup=function(){
-
-					var newUser={
-						id:$scope.id,
-						username:$scope.username,
-												
-						password:$scope.password,
-						password1:$scope.password1
-
-					};	
-
-					$http.post('/admin',newUser).then(function(res){
-							
-						
-						alert('done!');
-									
-				},function(err){
-
-					alert('already registered!');
-
-				});
-				}
-			$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
-
-			}
-		
-		});
-
-		app.controller ('guard_signinController', function($rootScope,$scope,$http,$cookies){
-				  
-				  $scope.submitSignup=function(){
-
-					var newUser={
-						gid:$scope.gid,
-						username:$scope.username,
-						gender:$scope.gender,
-						add:$scope.add,
-						work:$scope.work,
-						post:$scope.post,
-						password:$scope.password,
-						password1:$scope.password1
-
-					};	
-
-					$http.post('/security',newUser).then(function(res){
-							
-						
-						alert('done!');
-									
-				},function(err){
-
-					alert('already registered!');
-
-				});
-				}
+        });
+        app.controller ('admin_signinController', function($rootScope,$scope,$http,$cookies){
 
 
 
+                $scope.submitSignup=function(){
+
+                    var newUser={
+                        id:$scope.id,
+                        username:$scope.username,
+
+                        password:$scope.password,
+                        password1:$scope.password1
+
+                    };
+
+                    $http.post('/admin',newUser).then(function(res){
 
 
-					$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
+                        alert('done!');
 
-					}
+                },function(err){
 
-			
-		
-		});
-		app.controller ('loginController', function($rootScope,$scope,$http,$cookies){
-				$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
+                    alert('already registered!');
 
-			}
+                });
+                }
+            $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+        });
+
+        app.controller ('guard_signinController', function($rootScope,$scope,$http,$cookies){
+
+                  $scope.submitSignup=function(){
+
+                    var newUser={
+                        gid:$scope.gid,
+                        username:$scope.username,
+                        gender:$scope.gender,
+                        add:$scope.add,
+                        work:$scope.work,
+                        post:$scope.post,
+                        password:$scope.password,
+                        password1:$scope.password1
+
+                    };
+
+                    $http.post('/security',newUser).then(function(res){
 
 
-			
-		
-		});
-			app.controller ('sec_sectionController', function($rootScope,$scope,$http,$cookies){
-				
-					$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
+                        alert('done!');
 
-			}
+                },function(err){
 
-			
-		
-		});
-		
-			app.controller ('updateController', function($rootScope,$scope,$http,$cookies){
-				
-				
-				$scope.update=function(){
+                    alert('already registered!');
 
-					var newUser={
-						username:$rootScope.currentuser,
-						password:$scope.password
-					};	
+                });
+                }
 
-					$http.post('/users/update',newUser).then(function(){
-									
-				});
-				}
-				$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
 
-			}
-				
-		
-		});
-			app.controller ('stud_landingController', function($rootScope,$scope,$http,$cookies){
-				
-				
-			/*	$scope.update=function(){
 
-					var newUser={
-						username:$scope.username,
-						password:$scope.password
-					};	
 
-					$http.post('/users/update',newUser).then(function(){
-									
-				});
-				}
-				*/
-				$scope.logout=function(){
-					$cookies.remove('token');
-					$cookies.remove('currentuser');
-					$rootScope.token=null;
-					$rootScope.currentuser=null;
 
-			}
-		
-		});
+                    $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
 
-	
-		
+                    }
 
-	</script>
-	
+
+
+        });
+        app.controller ('loginController', function($rootScope,$scope,$http,$cookies){
+                $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+
+
+
+        });
+            app.controller ('sec_sectionController', function($rootScope,$scope,$http,$cookies){
+
+                    $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+
+
+        });
+
+            app.controller ('updateController', function($rootScope,$scope,$http,$cookies){
+
+
+                $scope.update=function(){
+
+                    var newUser={
+                        username:$rootScope.currentuser,
+                        password:$scope.password
+                    };
+
+                    $http.post('/users/update',newUser).then(function(){
+
+                });
+                }
+                $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+
+        });
+            app.controller ('stud_landingController', function($rootScope,$scope,$http,$cookies){
+
+
+            /*	$scope.update=function(){
+
+                    var newUser={
+                        username:$scope.username,
+                        password:$scope.password
+                    };
+
+                    $http.post('/users/update',newUser).then(function(){
+
+                });
+                }
+                */
+                $scope.logout=function(){
+                    $cookies.remove('token');
+                    $cookies.remove('currentuser');
+                    $rootScope.token=null;
+                    $rootScope.currentuser=null;
+
+            }
+
+        });
+        app.controller ('vehicleCtrl', function($rootScope,$scope,$http,$cookies){
+
+            $scope.vehicle_entry=function(){
+
+                var newEntry={id:$scope.vehicle.id,name:$scope.vehicle.name,regno:$scope.vehicle.regno,
+                               degree:$scope.vehicle.degree,wtm:$scope.vehicle.wtm,purpose:$scope.vehicle.purpose,entry:0,exit:0}
+
+                $http.post('/vehicle',newEntry).then(function(res){
+
+
+                    alert('Entry submitted successfully!');
+
+                },function(err){
+
+                    alert('Already entered!!');
+
+                });
+            }
+            $scope.logout=function(){
+                $cookies.remove('token');
+                $cookies.remove('currentuser');
+                $rootScope.token=null;
+                $rootScope.currentuser=null;
+
+            }
+
+
+        });
+
+        app.controller ('vehicleGuardIncoming', function($rootScope,$scope,$http,$cookies){
+
+
+            var refresh = function(){
+
+                $http.get('/vehicle/incoming').then(function(response){
+                    $scope.list=response.data;
+                },function(err){
+
+                });
+
+            };
+
+            refresh();
+            $scope.entry=function(id){
+
+                $http.put('/vehicle/entry/'+id).then(function(res){
+
+                    alert('Entry successful!');
+                    refresh();
+
+                },function(err){
+
+                });
+            }
+
+
+            $scope.logout=function(){
+                $cookies.remove('token');
+                $cookies.remove('currentuser');
+                $rootScope.token=null;
+                $rootScope.currentuser=null;
+            }
+
+        });
+
+
+
+
+        app.controller ('vehicleGuardOutgoing', function($rootScope,$scope,$http,$cookies){
+
+            var refresh = function(){
+
+                $http.get('/vehicle/outgoing').then(function(response){
+                    $scope.list=response.data;
+                },function(err){
+
+                });
+            };
+
+            refresh();
+            $scope.exit=function(id){
+
+                $http.put('/vehicle/exit/'+id).then(function(res){
+
+                    alert('Exit successful!');
+                    refresh();
+
+                },function(err){
+
+                });
+            }
+
+            $scope.logout=function(){
+                $cookies.remove('token');
+                $cookies.remove('currentuser');
+                $rootScope.token=null;
+                $rootScope.currentuser=null;
+            }
+
+        });
+
+    </script>
+
 </head>
 <body ng-app="mittens" background="galaxy.jpg" style="background-size: 1800px 1000px; background-attachment: fixed;">
-	<!--<nav class="navbar navbar-default" style="background: #FFFF66;">
+    <!--<nav class="navbar navbar-default" style="background: #FFFF66;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
@@ -539,7 +647,7 @@ $scope.logout=function(){
     <ul class="nav navbar-nav">
       <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
       <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
-      
+
       <li ><a class="btn" href="/login" style="font-size:1.4em;">Login </a></li>
       <li ><a class="btn" href="/signup" style="font-size:1.4em;">Register </a></li>
  
@@ -547,6 +655,6 @@ $scope.logout=function(){
   </div>
 </nav>-->
 
-	<div ng-view></div>
+    <div ng-view></div>
 </body>
 </html>

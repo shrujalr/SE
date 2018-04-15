@@ -3,7 +3,9 @@ var app= express();
 var bodyParser = require('body-parser');
 var ObjectId=require('mongodb').ObjectId;
 var MongoClient = require('mongodb').MongoClient;
-var bcrypt=require('bcryptjs');
+var mongojs = require('mongojs');
+var database = mongojs('ssrss',['vehicle_entries']);
+//var bcrypt=require('bcryptjs');
 var jwt = require('jwt-simple');
 var JWT_SECRET='catsmeow';
 
@@ -26,6 +28,7 @@ MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
 
 app.use(express.static('public'));
 app.use(bodyParser());
+
 
 
 app.get('/meows',function(req,res,next){
@@ -602,4 +605,101 @@ app.put('/users/signin',function(req,res,next)
 });
 
 */
-    
+
+app.post('/vehicle',function(req,res,next)
+{
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('vehicle_entries', function (err, details){
+            details.insert(req.body,{w:1},function(err) {
+                        if(err) throw err;
+                        return res.send();
+            });
+        });
+    });
+});
+
+
+
+app.get('/vehicle/incoming',function(req,res,next){
+
+    // Connect to the db
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('vehicle_entries', function (err, collection) {
+
+            collection.find({entry:0}).toArray(function(err, items) {
+                if(err) throw err;
+                //console.log(json(items).text);
+                //  console.log(res.json(items).text);
+                return res.json(items);
+            });
+
+        });
+
+    });
+});
+
+
+
+app.get('/vehicle/outgoing',function(req,res,next){
+
+    // Connect to the db
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('vehicle_entries', function (err, collection) {
+
+            collection.find({entry:1,exit:0}).toArray(function(err, items) {
+                if(err) throw err;
+                //console.log(json(items).text);
+                //  console.log(res.json(items).text);
+                return res.json(items);
+            });
+
+        });
+
+    });
+});
+
+
+
+
+app.put('/vehicle/entry/:id',function(req,res){
+
+    var id = req.params.id;
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
+
+        db.collection('vehicle_entries',function (err,collection) {
+            collection.update({_id:mongojs.ObjectId(id)},{$set:{entry:1,entryTime:Date()}},function (err) {
+                if (err) throw err;
+                return res.send();
+            });
+        });
+
+    });
+
+});
+
+
+app.put('/vehicle/exit/:id',function(req,res){
+
+    var id = req.params.id;
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
+
+        db.collection('vehicle_entries',function (err,collection) {
+            collection.update({_id:mongojs.ObjectId(id)},{$set:{exit:1,exitTime:Date()}},function (err) {
+                if (err) throw err;
+                return res.send();
+            });
+        });
+
+    });
+
+});
+
+
+app.get('*',function(req,res){
+    res.sendfile('public/index.html')
+});
