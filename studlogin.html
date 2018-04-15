@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+      <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+     <!-- <div ng-hide="currentuser">-->
+      <li ng-hide="currentuser"><a class="btn" href="/login" style="font-size:1.4em;">Login </a></li>
+      <li ng-hide="currentuser"><a class="btn" href="/signup" style="font-size:1.4em;">Register </a></li>
+ 	<!--</div>-->
+<!--<div ng-show="currentuser">-->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+	<a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+	
+			<!--</div>-->
+
+
+
+    </ul>
+  </div>
+</nav>
+
+<div class="row feed">
+		<div class="col-md-4">
+		<div ng-hide="currentuser">
+			<h2>Login </h2>
+				 <form>
+				     <input type="text" class="form-control" ng-model="firstname" placeholder="Username"><br><br>
+				    <input type="password" class="form-control" size="30" placeholder="Password" ng-model="password">
+				    <br>
+				    <br>
+				    <!--<a href="/stud_landing">--><button type="button" class="btn" ng-click="signin()" style="font-size: 2em;background: black;color: white;">LOG IN</button><!--</a>-->&nbsp;
+				  </form>
+
+
+				
+		</div>
+		<div ng-show="currentuser">
+		<h2>	HELLO,{{currentuser}} :) </h2><br>
+			<br>
+			<a href ng-click="logout()" class="btn" style="font-size: 1.5em;background: black;color: white;">LOGOUT</a>
+		  <a href="/update" class="btn" style="font-size: 1.5em;background: black;color: white;">reset</a>
+			
+			
+		</div>
+				 
+				
+		</div>
+		
+	</div>
