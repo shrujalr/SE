@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+            <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+            <!-- <div ng-hide="currentuser">-->
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Gate Pass</a></li>
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Home Register </a></li>
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Vehicle Registration </a></li>
+
+            <!--</div>-->
+            <!--<div ng-show="currentuser">-->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+            <a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+
+            <!--</div>-->
+
+
+
+        </ul>
+    </div>
+</nav>
+
+
+<div style = "padding : 10% 10%">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Pending Gate Passes</div>
+
+        <div ng-repeat = "gp in gps">
+
+            <!--<div class="panel panel-default">-->
+                <div ng-if = "gp.verified === false && isValid(gp) == true">
+                    <br>
+                    <div class="panel-body" style = "box-shadow: 10px 10px 5px grey;margin: 0px 10px;border: 1px solid black; border-radius: 10px">
+                        <span style = "float : left" ng-model = "ID"><b>{{gp.id}}</b></span>
+                        <span style = "float:right; color : limegreen">
+                            <button class = "btn btn-primary" data-toggle="collapse" data-target="#update{{gp.id}}" >
+                                View
+                            </button>
+                            <button class = "btn btn-success" ng-click = "verify(gp)">Verify</button>
+                            <!--<i  class = "fas fa-check-circle" ng-click = "verify(gp)"></i>-->
+                        </span>
+                    </div>
+                    <div id = "update{{gp.id}}" class = "collapse" style = "margin: 5% 10% auto">
+                        <label for="id">ID. No.</label>
+                        <input type = "text" id = "id" ng-model="gp.id" value = "{{gp.id}}" disabled></input><br><br>
+                        <label for="DoD">Date of Departure</label>
+                        <input type = "date" id = "DoD" ng-model="gp.dod" value = "{{gp.dod | date:'yyyy-MM-dd'}}"></input><br><br>
+                        <label for="Laptop">Laptop(Y/N)</label>
+                        <input type = "text" id = "Laptop" ng-model="gp.lptop" maxlength="1"></input><br><br>
+                        <label for="Luggage">Luggage</label>
+                        <textarea id = "Luggage" ng-model="gp.luggage" maxlength = "50"></textarea><br><br>
+                        <input type = "submit" class = "btn btn-primary" ng-click="updateGatePass(gp)" value = "Update"></input>
+                    </div>
+                    <br>
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+</html>
