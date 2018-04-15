@@ -3,7 +3,10 @@ var app= express();
 var bodyParser = require('body-parser');
 var ObjectId=require('mongodb').ObjectId;
 var MongoClient = require('mongodb').MongoClient;
-var bcrypt=require('bcryptjs');
+var mongojs = require('mongojs');
+var database = mongojs('ssrss',['vehicle_entries']);
+var datab = mongojs('ssrss',['homeregister_entries']);
+//var bcrypt=require('bcryptjs');
 var jwt = require('jwt-simple');
 var JWT_SECRET='catsmeow';
 
@@ -602,4 +605,159 @@ app.put('/users/signin',function(req,res,next)
 });
 
 */
-    
+
+app.post('/vehicle',function(req,res,next)
+{
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+
+
+
+        db.collection('vehicle_entries', function (err, details) {
+
+
+            details.find({name:req.body.name}).toArray(function(err, items) {
+                //if the user already exists, then send error
+                if(items[0])
+                {
+                    /*details.update( { username : req.body.username }, { name : req.body.username, password: req.body.password }, function(err){
+                           if(err) throw err;
+                           return res.send();
+                           } );	*/
+
+
+                    return res.sendStatus(400);
+
+                }
+                else    //insert
+                {
+
+
+                    details.insert(req.body,{w:1},function(err) {
+                        if(err) throw err;
+                        return res.send();
+                    });
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+
+app.get('/vehicle',function(req,res,next){
+
+    // Connect to the db
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('vehicle_entries', function (err, collection) {
+
+            collection.find({verified:0}).toArray(function(err, items) {
+                if(err) throw err;
+                //console.log(json(items).text);
+                //  console.log(res.json(items).text);
+                return res.json(items);
+            });
+
+        });
+
+    });
+});
+
+
+
+app.put('/vehicle/verify/:id',function(req,res){
+
+    var id = req.params.id;
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
+
+        db.collection('vehicle_entries',function (err,collection) {
+            collection.update({_id:mongojs.ObjectId(id)},{$set:{verified:1}},function (err) {
+                if (err) throw err;
+                return res.send();
+            });
+        });
+
+    });
+
+});
+
+
+app.post('/homeregister',function(req,res,next){
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('homeregister_entries', function (err, details) {
+
+            details.find({id:req.body.id}).toArray(function(err, items) {
+                //if the user already exists, then send error
+                if(items[0])
+                {
+                    /*details.update( { username : req.body.username }, { name : req.body.username, password: req.body.password }, function(err){
+                           if(err) throw err;
+                           return res.send();
+                           } ); */
+
+
+                    return res.sendStatus(400);
+
+                }
+                else    //insert
+                {
+
+
+                    details.insert(req.body,{w:1},function(err) {
+                        if(err) throw err;
+                        return res.send();
+                    });
+                }
+
+            });
+
+        });
+     });
+});  
+
+app.get('/homeregister',function(req,res,next){
+
+    // Connect to the db
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
+
+        db.collection('homeregister_entries', function (err, collection) {
+
+            collection.find({verified:0}).toArray(function(err, items) {
+                if(err) throw err;
+                //console.log(json(items).text);
+                //  console.log(res.json(items).text);
+                return res.json(items);
+            });
+
+        });
+
+    });
+});  
+
+    app.put('/homeregister/verify/:id',function(req,res){
+
+    var id = req.params.id;
+
+    MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db){
+
+        db.collection('homeregister_entries',function (err,collection) {
+            collection.update({_id:mongojs.ObjectId(id)},{$set:{verified:1}},function (err) {
+                if (err) throw err;
+                return res.send();
+            });
+        });
+
+    });
+
+});
+    app.get('*',function(req,res){
+    res.sendfile('public/index.html')
+});

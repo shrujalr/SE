@@ -1,0 +1,128 @@
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+            <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+            <!-- <div ng-hide="currentuser">-->
+            <li ng-hide="currentuser"><a class="btn" href="/login" style="font-size:1.4em;">Login </a></li>
+            <li ng-hide="currentuser"><a class="btn" href="/signup" style="font-size:1.4em;">Register </a></li>
+            <!--</div>-->
+            <!--<div ng-show="currentuser">-->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+            <a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+
+            <!--</div>-->
+
+
+
+        </ul>
+    </div>
+</nav>
+
+
+<table border='0' width='480px' cellpadding='0' cellspacing='0' align='center'>
+<center><tr>
+   <td><h1>Common Entries</h1></td>
+</tr><center>
+ 
+<table border='0' width='480px' cellpadding='0' cellspacing='0' align='center'>
+<tr>
+    <td align='center'>Destination:</td>
+    <td><input type='text' class="form-control" name='destination' ng-model="homeregister.destination"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Id Number:</td>
+    <td><input type='text' class="form-control" name='id' ng-model="homeregister.id"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Branch:</td>
+    <td><input type='text' class="form-control" name='branch' ng-model="homeregister.branch"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Hostel Block No.:</td>
+    <td><input type='text' class="form-control" name='hostelblock' ng-model="homeregister.hostelblock"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Out Date:</td>
+    <td><input type='text' class="form-control" name='outdate' ng-model="homeregister.outdate"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Out Time:</td>
+    <td><input type='text' class="form-control" name='outtime' ng-model="homeregister.outtime"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>In Date:</td>
+    <td><input type='text' class="form-control" name='indate' ng-model="homeregister.indate"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>In Time:</td>
+    <td><input type='text' class="form-control" name='intime' ng-model="homeregister.intime"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Mobile Number:</td>
+    <td><input type='text' class="form-control" name='mobno' ng-model="homeregister.mobno"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<center><tr>
+   <td><h1>For Girls</h1></td>
+</tr></center>
+  <tr>
+    <td align='center'>PNR Number:</td>
+    <td><input type='text' class="form-control" name='pnr' ng-model="homeregister.pnr"></td>
+</tr>
+ <tr> <td>&nbsp;</td> </tr> 
+<tr>
+    <td align='center'>Mode of Transport:</td>
+    <td><input type='text' class="form-control" name='mode' ng-model="homeregister.mode"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Cab Number:</td>
+    <td><input type='text' class="form-control" name='cabno' ng-model="homeregister.cabno"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<tr>
+    <td align='center'>Parents Mobile Number:</td>
+    <td><input type='text' name='pmobno' ng-model="homeregister.pmobno"></td>
+</tr>
+<tr> <td>&nbsp;</td> </tr>
+<td valign="bottom" align="right">
+<button type="button"  class="btn" style="font-size: 1.5em;background: black;color: white;" ng-click="home_register();">Submit</button>
+</td>
+<!--<table border='0' cellpadding='0' cellspacing='0' width='480px' align='center'>
+<tr>
+   <td align='center'><input type='submit' name='SUBMIT' value="SUBMIT" ng-click="home_register();"></td>
+
+</tr>
+</table>-->
+
+</table>
+ 
+</table>
