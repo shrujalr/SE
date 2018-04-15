@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar navbar-default" style="background: #FFFF66;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="font-size:2em; ">SSRSS</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ><a class="btn" href="/" style="font-size:1.4em;">Home</a></li>
+            <li ><a class="btn" href="/about" style="font-size:1.4em;">About us </a></li>
+            <!-- <div ng-hide="currentuser">-->
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Gate Pass</a></li>
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Home Register </a></li>
+            <li ng-show="currentuser"><a class="btn" href="/" style="font-size:1.4em;">Vehicle Registration </a></li>
+
+            <!--</div>-->
+            <!--<div ng-show="currentuser">-->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span style="font-size: 1.5em;" ng-show="currentuser">	HELLO,{{currentuser}} :) </span>
+            <a align="right" ng-show="currentuser" href ng-click="logout()" class="btn" style="font-size: 1em;background: black;color: white;">LOGOUT</a>
+
+            <!--</div>-->
+
+
+
+        </ul>
+    </div>
+</nav>
+<div style = "margin: 10% 10%; border: 5px outset black; box-shadow: 10px 10px 5px grey">
+    <div style = "padding-top: 50px;text-align:center; background-color: blueviolet; height: 100px; vertical-align: middle">
+        <b>My Gate Pass : </b>
+    </div>
+    <div style = "padding: 10% 20%">
+        <!--<form name = "gatepass" onsubmit = "return validateGP()" class="form-horizontal">-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2" for="id">ID. Number:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type = "text" id = "id" ng-model="gpo.id"></input>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2" for="DoD">Date Of Departure:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type = "date" id = "DoD" ng-model="gpo.dod"></input>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2" for="Laptop">Laptop(Y/N):</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type = "text" name = "lptop" id = "Laptop" ng-model="gpo.lptop" maxlength = "1"></input>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2" for="Luggage">Luggage:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<textarea id = "Luggage" ng-model="gpo.luggage" maxlength="50"></textarea>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                    <!--<input type = "submit" class = "btn btn-primary" ng-click="storeGatePass()"></input>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+        <form name = "gatepass"  ng-submit="storeGatePass()">
+            <label for="id">ID. No.</label>
+            <input type = "text" id = "id" ng-model="gpo.id" required><br><br>
+            <label for="DoD">Date of Departure</label>
+            <input type = "date" name = "dod" id = "DoD" min = "{{mindate}}" max = "{{maxdate}}" ng-model="gpo.dod" required><br><br>
+            <!--<input type = "date" name = "dod" id = "DoD" ng-model="gpo.dod" required><br><br>-->
+            <label for="Laptop">Laptop(Y/N)</label>
+            <select id = "Laptop" ng-model = "gpo.lptop" required >
+                <option value = ""></option>
+                <option value = "Y" selected>Y</option>
+                <option value = "N">N</option>
+            </select>
+            <br><br>
+            <!--<input type = "text" id = "Laptop" name = "lptop" ng-model="gpo.lptop" maxlength = "1"><br><br>-->
+            <label for="Luggage">Luggage</label>
+            <textarea id = "Luggage" ng-model="gpo.luggage" maxlength="50" required></textarea><br><br>
+            <input type = "submit" class = "btn btn-primary" >
+        </form>
+    </div>
+</div>
+<script>
+//     function validateGP() {
+//
+//         var lptop = document.forms["gatepass"]["lptop"].value;
+//         /*Laptop Y or N*/
+//
+//         if (lptop == "Y" || lptop == "N") {
+// //          alert("Name must be filled out");
+//             return true;
+//         }
+//         else{
+//             alert("Laptop(Y/N) : Fill either Y or N !");
+//             return false;
+//         }
+//
+//     }
+</script>
+</html>
