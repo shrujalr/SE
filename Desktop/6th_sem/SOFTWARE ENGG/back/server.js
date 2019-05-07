@@ -7,8 +7,8 @@ var mongojs = require('mongojs');
 var database = mongojs('ssrss',['vehicle_entries']);
 var datab = mongojs('ssrss',['homeregister_entries']);
 //var bcrypt=require('bcryptjs');
-var jwt = require('jwt-simple');
-var JWT_SECRET='catsmeow';
+//var jwt = require('jwt-simple');
+//var JWT_SECRET='catsmeow';
 
 // Connect to the db
 MongoClient.connect("mongodb://localhost:27017/ssrss", function (err, db) {
